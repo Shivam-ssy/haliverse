@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.margarine-regular {
+    font-family: "Margarine", sans-serif;
+    font-style: normal;
+  }
+  
+.card-gradient{
+  background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+}
+

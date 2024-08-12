@@ -8,7 +8,7 @@ dotenv.config({
     path: './.env'
 })
 
-const origin= process.env.FRONTEND_URL || "http://localhost:5173";
+const origin= process.env.FRONTEND_URL ;
 // const origin="https://ominous-space-meme-jxvvr64r6462j7w6-5173.app.github.dev"
 app.use(cors({
     origin,

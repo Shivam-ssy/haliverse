@@ -13,7 +13,7 @@ const origin= process.env.FRONTEND_URL ;
 app.use(cors({
     origin,
     methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type'],
+    allowedHeaders:"*",
     credentials:true,
   })); 
 

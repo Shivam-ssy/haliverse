@@ -5,7 +5,7 @@ import { useDispatch,useSelector } from "react-redux"
 import { useEffect } from "react"
 import { getCurrentUser } from "./store/feature/Auth.js"
 import { Outlet } from "react-router-dom"
-import { getTeachers } from "./store/feature/User.js"
+import { getTeachers, listClassroom } from "./store/feature/User.js"
 import { getStudents } from "./store/feature/User.js"
 function App() {
   const dispatch = useDispatch();
@@ -16,6 +16,7 @@ function App() {
     dispatch(getCurrentUser());
     dispatch(getTeachers())
     dispatch(getStudents())
+    dispatch(listClassroom())
   }, [dispatch]);
   return (
    <>

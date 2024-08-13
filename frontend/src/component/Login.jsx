@@ -36,7 +36,7 @@ function Login() {
     // }
     dispatch(login(formData)).then((action) => {
       console.log(action)
-      if(action.payload)
+      if(action.type && action.type==="auth/login/fulfilled")
         Navigate("/dashboard")
       else{
         toast.error("Please Enter a valid Email and Password")

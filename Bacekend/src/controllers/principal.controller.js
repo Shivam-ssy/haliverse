@@ -3,11 +3,11 @@ import { Users } from "../models/user.models.js"
 
 const createPrincipal= async()=>{
     try{
-        const principal= await Users.findOne({email:"principal@example.com"})
+        const principal= await Users.findOne({email:"principal@classroom.com"})
         if(!principal)
         {
            const create= await Users.create({
-            email:"principal@example.com",
+            email:"principal@classroom.com",
             password:"Admin",
             role:'principal'
            })

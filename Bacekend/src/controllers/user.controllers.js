@@ -30,6 +30,8 @@ const generateAccessAndRefereshTokens = async(userId) =>{
 const login= asyncHandler(async (req,res)=>{
 
     const {email,password}=req.body
+    console.log(req.body);
+    
     if(!email || !password)
         throw new ApiError(400, "Please Enter Email and Password") 
     
@@ -37,7 +39,8 @@ const login= asyncHandler(async (req,res)=>{
     if(!user)
         throw new ApiError(404, "User not found")
 
-    const isPasswordValid=user.isPasswordCorrect(password)
+    const isPasswordValid=await user.isPasswordCorrect(password)
+    console.log(isPasswordValid);
     
     if(!isPasswordValid)
         throw new ApiError(401,"Invalid User Credential")

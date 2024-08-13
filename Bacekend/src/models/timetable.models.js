@@ -7,8 +7,7 @@ const periodSchema = new mongoose.Schema({
         required: true,
     },
     day: {
-        type: String,
-        enum: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        type: Array,
         required: true,
     },
     startTime: {

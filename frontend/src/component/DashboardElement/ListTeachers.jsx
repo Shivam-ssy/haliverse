@@ -7,7 +7,7 @@ function ListTeachers() {
   console.log("list of user",teachers);
   
   return (
-    <div className='w-full flex flex-col gap-5 items-center'>
+    <div className='w-full h-full flex flex-col items-center gap-2 py-10'>
     {teachers && teachers.map((user, index) => 
       <Card details={user} key={index} />
     )}

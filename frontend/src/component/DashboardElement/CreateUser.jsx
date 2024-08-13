@@ -28,23 +28,33 @@ function CreateUser() {
     console.log(formData);
     if(isStudent){
 
-      dispatch(registerStudent(formData)).then((action) => {
+      await dispatch(registerStudent(formData)).then((action) => {
         console.log(action)
-        if(action.type==="user/registerStudent/fulfilled")
+        if(action.type && action.type==="user/registerStudent/fulfilled")
          toast.success("user created successfully")
+        else if(action.payload.response.status===400)
+          toast.error("Please enter  name email and password")
+        else if(action.payload.response.status===409)
+            toast.error("Email Aready exist")
         else{
-          toast.error("Please Enter a valid Email and Password")
-        }
+            toast.error(" Something went wrong while creating")
+          }
+  
       })
     }
     else{
-      dispatch(registerTeacher(formData)).then((action) => {
-        console.log(action)
+      await dispatch(registerTeacher(formData)).then((action) => {
+    
         if(action.type==="user/registerTeacher/fulfilled")
          toast.success("user created successfully")
-        else{
-          toast.error("Please Enter a valid Email and Password")
-        }
+
+        else if(action.payload.response.status===400)
+            toast.error("Please enter  name email and password")
+        else if(action.payload.response.status===409)
+            toast.error("Email Aready exist")
+        else
+          toast.error(" Something went wrong while creating")
+        
       })
     }
   }

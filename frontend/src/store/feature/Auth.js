@@ -4,6 +4,7 @@ import config from "../../config/config.js"
 const initialState = {
   currentUser: undefined,
   isLoading: false,
+  error:undefined
 };
 
 
@@ -22,7 +23,7 @@ export const login = createAsyncThunk(
       );
       return response.data.data;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(err);
     }
   }
 );
@@ -57,8 +58,9 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.currentUser = action.payload;
       })
-      .addCase(login.rejected, (state) => {
+      .addCase(login.rejected, (state,action) => {
         state.isLoading = false;
+        state.error=action.payload
       })
       .addCase(getCurrentUser.pending, (state) => {
         state.isLoading = true;
@@ -75,6 +77,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.currentUser = null;
       });
+      
   },
 });
 

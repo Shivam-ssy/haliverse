@@ -13,7 +13,6 @@ import ListStudent from "./component/DashboardElement/ListStudent";
 import ListTeachers from "./component/DashboardElement/ListTeachers";
 import CreateClassroom from "./component/DashboardElement/CreateClassroom";
 import ListClassroom from "./component/DashboardElement/ListClassroom";
-import AssignTeacher from "./component/DashboardElement/AssignTeacher";
 import AddStudent from "./component/DashboardElement/AddStudent";
 import CurrentUser from './component/DashboardElement/CurrentUser.jsx'
 const router=createBrowserRouter(
@@ -79,14 +78,7 @@ const router=createBrowserRouter(
             </AdminDashBoard>
           }
         />
-        <Route
-          path="/dashboard/assign-classroom"
-          element={
-            <AdminDashBoard>
-              <AssignTeacher />
-            </AdminDashBoard>
-          }
-        />
+        
         <Route
           path="/dashboard/add-classroom"
           element={

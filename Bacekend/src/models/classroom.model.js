@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 
 const scheduleSchema = new mongoose.Schema({
     day: {
-        type: String,
-        enum: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        type: Array,
+        // enum: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
         required: true,
     },
     startTime: {
@@ -27,11 +27,11 @@ const classroomSchema = new mongoose.Schema({
         ref: 'User',
         required: true,
     },
-    teachers: [{
+    teachers: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true,
-    }],
+    },
     students: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',

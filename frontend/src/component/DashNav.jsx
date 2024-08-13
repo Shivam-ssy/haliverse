@@ -25,13 +25,12 @@ function DashNav() {
           <details className="flex flex-col gap-5 p-5">
             <summary className="list-none transition-all duration-500 ease-out w-full text-center rounded-xl cursor-pointer font-serif bg-[#4e4376] font-bold text-3xl">Teacher</summary>
            <Link to="/dashboard/create-teacher"> <button className="text-lg px-3 my-3 bg-black w-full rounded-xl">Create Teacher</button></Link>
-           <Link to="/dashboard/list-teacher"> <button onClick={listTeacher} className="text-lg px-3 bg-black w-full rounded-xl" >List Teacher</button></Link>
+           <Link to="/dashboard/list-teacher"> <button  className="text-lg px-3 bg-black w-full rounded-xl" >List Teacher</button></Link>
           </details>
           <details className="flex flex-col gap-5 p-5">
             <summary className="list-none transition-all duration-500 ease-out w-full text-center rounded-xl cursor-pointer font-serif bg-[#4e4376] font-bold text-3xl">Class Room</summary>
            <Link to="/dashboard/create-classroom"> <button className="text-lg px-3 my-3 bg-black w-full rounded-xl">Create Classroom</button></Link>
            <Link to="/dashboard/list-classroom"> <button className="text-lg mb-3 px-3 bg-black w-full rounded-xl" >List All Classroom</button></Link>
-           <Link to="/dashboard/assign-classroom"> <button className="text-lg mb-3 px-3 bg-black w-full rounded-xl" >Assign a teacher to classroom</button></Link>
            <Link to="/dashboard/add-classroom"> <button className="text-lg px-3 bg-black w-full rounded-xl" >Add a student to classroom</button></Link>
           </details>
         </div>

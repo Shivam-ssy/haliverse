@@ -5,6 +5,7 @@ import config from "../../config/config.js"
 const initialState = {
     teachers: undefined,
     students:undefined,
+    classRoom:undefined,
     isLoading: false,
     error:undefined
   };
@@ -18,7 +19,7 @@ const initialState = {
         });
         return response.data.user;
       } catch (err) {
-        return thunkAPI.rejectWithValue(err.response.data.errors);
+        return thunkAPI.rejectWithValue(err);
       }
     }
   );
@@ -32,7 +33,7 @@ const initialState = {
         });
         return response.data.user;
       } catch (err) {
-        return thunkAPI.rejectWithValue(err.response.data.errors);
+        return thunkAPI.rejectWithValue(err);
       }
     }
   );
@@ -45,7 +46,7 @@ const initialState = {
         });
         return response.data.data;
       } catch (err) {
-        return thunkAPI.rejectWithValue(err.message);
+        return thunkAPI.rejectWithValue(err);
       }
     }
   );
@@ -60,7 +61,22 @@ const initialState = {
         
         return response.data.data;
       } catch (err) {
-        return thunkAPI.rejectWithValue(err.message);
+        return thunkAPI.rejectWithValue(err);
+      }
+    }
+  );
+  export const listClassroom= createAsyncThunk(
+    "user/listClassroom",
+    async (_, thunkAPI) => {
+      try {
+        const response = await axios.get(`${config.backendUrl}/${config.apiEndPoint}/users/get-classroom`, {
+        withCredentials:true,
+        });
+        console.log(response);
+        
+        return response.data.data;
+      } catch (err) {
+        return thunkAPI.rejectWithValue(err);
       }
     }
   );
@@ -109,6 +125,17 @@ const initialState = {
           state.students = action.payload;
         })
         .addCase(getStudents.rejected, (state) => {
+          state.isLoading = false;
+        })
+        
+        .addCase(listClassroom.pending, (state) => {
+          state.isLoading = true;
+        })
+        .addCase(listClassroom.fulfilled, (state,action) => {
+          state.isLoading = false;
+          state.classRoom=action.payload
+        })
+        .addCase(listClassroom.rejected, (state) => {
           state.isLoading = false;
         })
     },

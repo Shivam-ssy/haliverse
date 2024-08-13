@@ -8,7 +8,6 @@ import { app } from "./src/app.js";
 import createPrincipal from "./src/controllers/principal.controller.js";
 const port =process.env.PORT || 3000
 
-app.get((req,res)=>res.send("hello"))
 connectDB()
 .then(()=>{
     app.listen(port,()=>{

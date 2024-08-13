@@ -25,6 +25,7 @@ app.use(cors({
 
 import authRoute from "./routes/auth.routes.js"
 import createRoute from "./routes/create.route.js"
+app.get("/",(req,res)=>res.json("hello"))
 
 app.use("/api/v1/users",authRoute)
 app.use("/api/v1/create",createRoute)

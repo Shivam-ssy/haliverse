@@ -6,10 +6,12 @@ dotenv.config({
 
 import { app } from "./src/app.js";
 import createPrincipal from "./src/controllers/principal.controller.js";
+const port =process.env.PORT || 3000
 
+app.get((req,res)=>res.send("hello"))
 connectDB()
 .then(()=>{
-    app.listen(3000,()=>{
+    app.listen(port,()=>{
         createPrincipal().then(()=>console.log("Principal created")).catch((error)=>console.log("error while creating principal",error));
         
         console.log("App is listing on port 3000")
